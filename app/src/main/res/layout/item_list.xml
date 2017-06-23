@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.RecyclerView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_list"
+    android:name="io.social.jain.ui.sublist.ItemListFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/_16sdp"
+    app:layoutManager="LinearLayoutManager"
+    tools:context="com.jain.vidhyasagarsant.ui.subCategory.master.SubCategoryListActivity"
+    tools:listitem="@layout/item_list_content"
+    android:layout_marginRight="@dimen/_16sdp" />

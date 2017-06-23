@@ -1,0 +1,171 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+apply plugin: 'kotlin-android'
+//apply from: '../config/quality/quality.gradle'
+
+android {
+//    compileSdkVersion rootProject.ext.compileSdkVersion
+//    buildToolsVersion rootProject.ext.buildToolsVersion
+//    defaultConfig {
+//        applicationId "io.social.jain"
+//        minSdkVersion rootProject.ext.minSdkVersion
+//        targetSdkVersion rootProject.ext.targetSdkVersion
+//        versionCode 1
+//        versionName "1.0"
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//        vectorDrawables.useSupportLibrary = true
+//    }
+    signingConfigs {
+        Release {
+            keyAlias 'Kuliza'
+            keyPassword 'kuliza'
+            storeFile file('/Users/kuliza-282/Desktop/social/keystore')
+            storePassword 'kuliza'
+        }
+    }
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "com.jain.vidhyasagarsant"
+        minSdkVersion 17
+        targetSdkVersion 25
+        versionCode 2
+        versionName "1.2"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+//    dataBinding {
+//        enabled = true
+//    }
+    flavorDimensions "mode"
+    productFlavors {
+        uat {
+            it.buildConfigField 'String', 'BASE_URL', BaseUrlUat
+            it.buildConfigField 'String', 'PASSWORD', passwordUat
+            dimension "mode"
+        }
+        prod {
+            it.buildConfigField 'String', 'BASE_URL', BaseUrlProd
+            it.buildConfigField 'String', 'PASSWORD', passwordProd
+            dimension "mode"
+        }
+    }
+    buildTypes {
+        debug {
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.Release
+        }
+    }
+    splits {
+
+        // Configures multiple APKs based on ABI.
+//        abi {
+//
+//            // Enables building multiple APKs per ABI.
+//            enable true
+//
+//            // By default all ABIs are included, so use reset() and include to specify that we only
+//            // want APKs for x86, armeabi-v7a, and mips.
+//
+//            // Resets the list of ABIs that Gradle should create APKs for to none.
+//            reset()
+//
+//            // Specifies a list of ABIs that Gradle should create APKs for.
+//            include "x86_64", "armeabi-v7a", "x86", "arm64-v8a"
+//
+//            // Specifies that we do not want to also generate a universal APK that includes all ABIs.
+//            universalApk true
+//        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    // android support libraries
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+    compile "com.android.support:support-vector-drawable:$rootProject.supportLibraryVersion"
+    compile "com.android.support:animated-vector-drawable:$rootProject.supportLibraryVersion"
+    compile "com.android.support.constraint:constraint-layout:$rootProject.constraintVersion"
+
+    // network
+    compile "com.amitshekhar.android:rx2-android-networking:$rootProject.rx2AndroidNetworking"
+    compile "com.google.code.gson:gson:$rootProject.gsonVersion"
+
+    // dependency injection
+    compile "com.google.dagger:dagger:$rootProject.dagger2Version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+
+    // reactive
+    compile "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
+    compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
+
+    // code generator for view
+    compile "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
+
+    // logger
+    compile "com.jakewharton.timber:timber:$rootProject.timberVersion"
+
+    //Glide
+    compile "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    compile "com.android.support:support-v4:$rootProject.v4Support"
+
+    //
+    compile "javax.inject:javax.inject:$rootProject.javaxInject"
+    provided "javax.annotation:jsr250-api:$rootProject.javaxAnnotation"
+
+
+    // dependencies for local unit tests
+    testCompile "junit:junit:$rootProject.ext.junitVersion"
+    testCompile "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    testAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+
+    // UI Testing
+    androidTestCompile "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+    compile "com.android.support:customtabs:$rootProject.supportLibraryVersion"
+    compile 'com.google.firebase:firebase-messaging:10.2.4'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
+    compile 'com.intuit.sdp:sdp-android:1.0.3'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+
+    compile 'com.google.android.gms:play-services-analytics:10.2.4'
+}
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+apply plugin: 'com.google.gms.google-services'
