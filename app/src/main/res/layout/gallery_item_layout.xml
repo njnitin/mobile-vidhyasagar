@@ -7,7 +7,8 @@
     android:layout_height="wrap_content"
     card_view:cardUseCompatPadding="true"
     card_view:cardCornerRadius="@dimen/_7sdp"
-    android:layout_marginBottom="@dimen/_14sdp">
+    android:layout_marginBottom="@dimen/_14sdp"
+    android:background="@drawable/bg_01">
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

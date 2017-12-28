@@ -32,4 +32,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="no_link_present_toast">No external link present for this news</string>
     <string name="action_search">Search</string>
+
+    <string name="title_activity_home_landing">HomeLandingActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
