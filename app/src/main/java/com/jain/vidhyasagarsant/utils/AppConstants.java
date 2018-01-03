@@ -31,6 +31,8 @@ public final class AppConstants {
     public static final String GALLARY_RESPONSE = "Gallary_Response";
     public static final String GALLARY_IMAGE_INDEX = "Gallary_Image_Index";
     public static final String PREF_CATEGORY = "_pref_category";
+    public static final String PREF_SUBCATEGORY = "_pref_subcategory";
+    public static final String PREF_SUBCATEGORY_ITEM = "_pref_subcategory_item";
     public static final String DEFAULT_CATEGORY = "";
     public static final String SUB_CATEGORY_ID = "_sub_category_id";
 

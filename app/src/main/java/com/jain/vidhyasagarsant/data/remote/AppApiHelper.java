@@ -1,5 +1,10 @@
 
 package com.jain.vidhyasagarsant.data.remote;
+import android.content.Context;
+import android.text.TextUtils;
+
+import com.jain.vidhyasagarsant.data.local.json.JsonParserHelper;
+import com.jain.vidhyasagarsant.data.local.prefs.AppPreferencesHelper;
 import com.jain.vidhyasagarsant.data.remote.model.Category;
 import com.jain.vidhyasagarsant.data.remote.model.categoryItems.CategoryItemData;
 import com.jain.vidhyasagarsant.data.remote.model.gallery.GalleryOutputModel;
@@ -8,8 +13,10 @@ import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+//import com.jain.vidhyasagarsant.data.local.json.JsonParserHelper;
 
 import io.reactivex.Observable;
+import com.google.gson.Gson;
 
 /**
  * Created by @iamBedant on 15/03/17.
@@ -19,6 +26,8 @@ import io.reactivex.Observable;
 public class AppApiHelper implements ApiHelper {
 
     private ApiHeader mApiHeader;
+//    private JsonParserHelper jsonParserHelper;
+    Gson gson = new Gson();
 
     @Inject
     public AppApiHelper(ApiHeader apiHeader) {
@@ -58,9 +67,31 @@ public class AppApiHelper implements ApiHelper {
     }
 
     public Observable<Category> getCategories() {
-        return Rx2AndroidNetworking.get(ApiEndPoint.CATEGORY_URL)
+//    public Observable getCategories() {
+//       return Observable.fromArray(gson.fromJson(jsonParserHelper.loadAsset("content.json"), Category.class));
+
+/*        return Rx2AndroidNetworking.get(ApiEndPoint.CATEGORY_URL)
                 .build()
-                .getObjectObservable(Category.class);
+                .getObjectObservable(Category.class);*/
+
+        final String json = JsonParserHelper.getInstance().loadFromAsset("content.json");
+        if(!TextUtils.isEmpty(json)){
+            Gson gson = new Gson();
+            Category categorydata = gson.fromJson(json, Category.class);
+            return Observable.just(categorydata);
+        }else{
+            return Observable.just(null);
+        }
+
+//        AppPreferencesHelper aa=new AppPreferencesHelper();
+//        return aa.getCategoryFromDisk();
+//        return aa.getContent(myContext,"a","a");
+
+/*        Category cc;
+        cc = gson.fromJson(jsonParserHelper.loadAsset("content.json"), Category.class);*/
+//        return jsonParserHelper.loadAsset("content.json");
     }
+
 }
+
 

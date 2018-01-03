@@ -2,6 +2,8 @@
 
 package com.jain.vidhyasagarsant.ui.landing;
 
+import android.content.Context;
+
 import com.androidnetworking.error.ANError;
 import com.jain.vidhyasagarsant.data.remote.model.Category;
 

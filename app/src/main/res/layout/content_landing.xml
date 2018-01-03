@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.jain.vidhyasagarsant.ui.landing.LandingActivity"
-    tools:showIn="@layout/app_bar_landing">
+    tools:showIn="@layout/app_bar_landing"
+    android:background="@drawable/bg_01">
 
     <FrameLayout
         android:id="@+id/frameLayout"

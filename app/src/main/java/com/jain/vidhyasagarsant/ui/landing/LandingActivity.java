@@ -1,5 +1,6 @@
 package com.jain.vidhyasagarsant.ui.landing;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.jain.vidhyasagarsant.R;
+import com.jain.vidhyasagarsant.data.local.json.JsonParserHelper;
 import com.jain.vidhyasagarsant.data.remote.model.Category;
 import com.jain.vidhyasagarsant.ui.base.BaseActivity;
 import com.jain.vidhyasagarsant.ui.categoryList.master.CategoryItemListActivity;
@@ -164,6 +166,7 @@ public class LandingActivity extends BaseActivity implements LandingMvpView, Nav
         getActivityComponent().inject(this);
         setUnBinder(ButterKnife.bind(this));
         mPresenter.onAttach(LandingActivity.this);
+        JsonParserHelper.getInstance().setMyContext(this);
 
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

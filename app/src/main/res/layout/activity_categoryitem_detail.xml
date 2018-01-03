@@ -5,13 +5,15 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="com.jain.vidhyasagarsant.ui.categoryList.detail.CategoryItemDetailActivity"
-    tools:ignore="MergeRootFrame">
+    tools:ignore="MergeRootFrame"
+    android:background="@drawable/bg_01">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@drawable/bg_01">
 
 
 
