@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:background="@color/bg_color"
     android:orientation="vertical"
-    tools:context="com.jain.vidhyasagarsant.ui.contactUs.ContactUsActivity">
+    tools:context="com.jain.vidhyasagarsant.ui.contactUs.ContactUsActivity"
+    android:background="@drawable/bg_01">
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             app:titleTextColor="@color/white"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@drawable/bg_01"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
     </android.support.design.widget.AppBarLayout>
 
@@ -39,7 +39,8 @@
         app:contentPadding="10dp"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:minHeight="48dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/transparent">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -57,7 +58,8 @@
         app:contentPadding="10dp"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:minHeight="48dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/transparent">
         <LinearLayout
             android:layout_width="match_parent"
             android:gravity="center_vertical"
@@ -86,7 +88,8 @@
         app:contentPadding="10dp"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:minHeight="48dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/transparent">
     <LinearLayout
             android:layout_width="match_parent"
             android:gravity="center_vertical"
@@ -115,7 +118,8 @@
         android:layout_marginRight="@dimen/activity_vertical_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:minHeight="48dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/transparent">
         <LinearLayout
             android:layout_width="match_parent"
             android:gravity="center_vertical"

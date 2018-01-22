@@ -7,15 +7,17 @@
         android:layout_width="wrap_content"
         android:orientation="vertical"
         android:layout_toRightOf="@id/logo"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/_60sdp"
+        android:background="@drawable/bg_01">
         <TextView
             android:id="@+id/id"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_40sdp"
             android:layout_marginTop="@dimen/text_margin"
             android:layout_marginLeft="@dimen/text_margin"
             android:layout_marginRight="@dimen/text_margin"
-            android:textAppearance="?attr/textAppearanceListItem" />
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:background="@drawable/bg_01"/>
 
 
         <TextView
@@ -37,8 +39,8 @@
         android:layout_marginRight="@dimen/small_text_margin"
         android:layout_marginTop="@dimen/extra_small_text_margin"
         android:layout_marginBottom="@dimen/extra_small_text_margin"
-
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_01"/>
 
 
 </RelativeLayout>
