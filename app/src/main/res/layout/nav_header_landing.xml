@@ -26,8 +26,11 @@
         android:paddingLeft="@dimen/_20sdp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="विद्या सागर संत"
-        android:textSize="26dp"
-
+        android:textSize="28dp"
+        android:shadowColor="#FBFBFB"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="25"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 </LinearLayout>

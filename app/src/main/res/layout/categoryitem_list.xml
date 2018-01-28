@@ -10,5 +10,5 @@
     android:layout_marginRight="@dimen/_16sdp"
     app:layoutManager="LinearLayoutManager"
     tools:context="com.jain.vidhyasagarsant.ui.categoryList.master.CategoryItemListActivity"
-    tools:listitem="@layout/categoryitem_list_content"
-    android:background="@drawable/bg_01"/>
+    tools:listitem="@layout/categoryitem_list_content"/>
+    <!--android:background="@drawable/bg_01"-->

@@ -19,9 +19,6 @@ import io.reactivex.Observable;
 import io.reactivex.functions.Consumer;
 import timber.log.Timber;
 
-/**
- * Created by @iamBedant on 25/05/17.
- */
 @Singleton
 public class AppDataManager implements DataManager{
     private static final String TAG = "AppDataManager";

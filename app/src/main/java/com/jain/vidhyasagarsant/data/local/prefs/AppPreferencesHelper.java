@@ -16,9 +16,6 @@ import javax.inject.Singleton;
 import io.reactivex.Observable;
 import timber.log.Timber;
 
-/**
- * Created by @iamBedant on 31/05/17.
- */
 
 @Singleton
 public class AppPreferencesHelper implements PreferencesHelper {

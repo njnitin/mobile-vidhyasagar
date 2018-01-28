@@ -3,10 +3,6 @@ package com.jain.vidhyasagarsant.utils;
 import android.app.ProgressDialog;
 import android.content.Context;
 
-/**
- * Created by kuliza-303 on 07/06/17.
- */
-
 public class DialogUtils {
 
     public static ProgressDialog mProgressDialog = null;

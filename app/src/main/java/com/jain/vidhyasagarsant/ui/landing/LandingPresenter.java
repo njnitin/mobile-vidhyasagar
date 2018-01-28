@@ -1,5 +1,3 @@
-
-
 package com.jain.vidhyasagarsant.ui.landing;
 
 import com.androidnetworking.error.ANError;
@@ -22,10 +20,6 @@ import io.reactivex.functions.Predicate;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
-
-/**
- * Created by @iamBedant on 15/03/17.
- */
 
 public class LandingPresenter<V extends LandingMvpView> extends BasePresenter<V>
         implements LandingMvpPresenter<V> {

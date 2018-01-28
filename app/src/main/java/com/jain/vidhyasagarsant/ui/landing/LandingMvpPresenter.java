@@ -5,10 +5,6 @@ import com.jain.vidhyasagarsant.data.remote.model.Category;
 import com.jain.vidhyasagarsant.ui.base.MvpPresenter;
 import com.jain.vidhyasagarsant.injection.PerActivity;
 
-/**
- * Created by @iamBedant on 15/03/17.
- */
-
 @PerActivity
 public interface LandingMvpPresenter<V extends LandingMvpView> extends MvpPresenter<V> {
 

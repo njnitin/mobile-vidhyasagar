@@ -228,12 +228,14 @@
         </receiver>
         <service android:name="com.google.android.gms.analytics.CampaignTrackingService" />
 
-        <activity
+        <!--
+            <activity
             android:name=".HomeLandingActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_home_landing"
             android:theme="@style/FullscreenTheme" />
         <activity android:name=".HomeSplash"></activity>
+        -->
     </application>
 
 </manifest>
