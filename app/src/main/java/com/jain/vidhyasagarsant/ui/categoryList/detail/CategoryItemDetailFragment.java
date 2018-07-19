@@ -3,6 +3,8 @@ package com.jain.vidhyasagarsant.ui.categoryList.detail;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,8 @@ import android.webkit.WebViewClient;
 import com.jain.vidhyasagarsant.ui.categoryList.master.CategoryItemListActivity;
 import com.jain.vidhyasagarsant.R;
 import com.jain.vidhyasagarsant.utils.DialogUtils;
+
+import java.lang.reflect.InvocationTargetException;
 
 import io.iamBedant.starter.utils.GoogleAnalyticsManager;
 
@@ -29,6 +33,7 @@ public class CategoryItemDetailFragment extends Fragment {
     public static final String ARG_ITEM_ID = "item_id";
     public static final String ARG_ITEM_NAME = "item_name";
     public static final String ARG_ITEM_DESCRIPTION = "item_description";
+    public static final String TAG = "CategoryItemDetailFram";
 
     /**
      * The dummy content this fragment is presenting.
@@ -73,6 +78,7 @@ public class CategoryItemDetailFragment extends Fragment {
         mWebview.getSettings().setLoadsImagesAutomatically(true);
         mWebview.getSettings().setJavaScriptEnabled(true);
         mWebview.getSettings().setBuiltInZoomControls(true);
+        mWebview.getSettings().setSupportMultipleWindows(true);
         mWebview.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 
         DialogUtils.displayProgressDialog(getActivity(),getString(R.string.loading));
@@ -82,6 +88,43 @@ public class CategoryItemDetailFragment extends Fragment {
         GoogleAnalyticsManager.trackGoogleAnalyticsEvent(GoogleAnalyticsManager.CATEGORY_ITEM_DETAILS_LOADED);
 
         return rootView;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mWebview.onPause();
+        mWebview.pauseTimers();
+
+        try {
+            Class.forName("android.webkit.WebView")
+                    .getMethod("onPause", (Class[]) null)
+                    .invoke(mWebview, (Object[]) null);
+
+        } catch(ClassNotFoundException cnfe) {
+            Log.e(TAG, "Runtime exception while getting specialized handlers");
+        } catch(NoSuchMethodException nsme) {
+            Log.e(TAG, "Runtime exception while getting specialized handlers");
+        } catch(InvocationTargetException ite) {
+            Log.e(TAG, "Runtime exception while getting specialized handlers");
+        } catch (IllegalAccessException iae) {
+            Log.e(TAG, "Runtime exception while getting specialized handlers");
+        }
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        mWebview.resumeTimers();
+        mWebview.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        mWebview.destroy();
+        mWebview = null;
+        super.onDestroy();
     }
 
 
@@ -97,5 +140,18 @@ public class CategoryItemDetailFragment extends Fragment {
         public void onPageFinished(WebView view, String url) {
             DialogUtils.cancelProgressDialog();
         }
+
+//        @Override
+//        public void onPageCommitVisible(WebView view, String url) {
+//            super.onPageCommitVisible(view, url);
+//
+//        }
+
+//        @Override
+//        public void onPause() {
+//            // TODO Auto-generated method stub
+//            super.onPause();
+//            mWebview.onPause();
+//        }
     }
 }

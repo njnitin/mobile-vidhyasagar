@@ -3,33 +3,54 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="@color/transparent">
+    android:background="@drawable/border_02">
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_margin="@dimen/text_margin"
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_40sdp"/>
+        android:layout_width="@dimen/_55sdp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/text_margin"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginRight="@dimen/small_text_margin"
+        android:layout_marginTop="@dimen/text_margin"
+        android:scaleType="fitCenter" />
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_height="@dimen/_40sdp">
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
         <TextView
             android:id="@+id/id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_margin"
-            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginLeft="@dimen/small_text_margin"
             android:layout_marginRight="@dimen/text_margin"
-            android:textAppearance="?attr/textAppearanceListItem" />
-
+            android:layout_marginTop="@dimen/text_margin"
+            android:shadowColor="#e13535"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="25"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="#281717" />
 
         <TextView
             android:id="@+id/content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
+            android:layout_marginLeft="@dimen/small_text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_marginBottom="@dimen/text_margin"
+            android:textColor="#281717"
+            android:shadowColor="#e13535"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="25"
             android:textAppearance="?attr/textAppearanceListItem"/>
     </LinearLayout>
 

@@ -19,6 +19,12 @@ public final class ApiEndPoint {
 
     public static final String CATEGORY_URL = BASE_URL+"get_categories/";
 
+    public static final String FLASHNEWS_URL = BASE_URL+"get_flash_news/";
+
+    public static final String VIHARUPDATES_URL = BASE_URL+"get_vihar_updates/";
+
+    public static final String LASTUPDATETIME_URL = BASE_URL+"get_last_update_time/";
+
     private ApiEndPoint() {
         // This class is not publicly instantiable
     }

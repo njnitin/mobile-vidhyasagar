@@ -1,13 +1,18 @@
 package com.jain.vidhyasagarsant.ui.webView;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.jain.vidhyasagarsant.R;
 import com.jain.vidhyasagarsant.ui.base.BaseActivity;
 import com.jain.vidhyasagarsant.utils.AppConstants;
 import com.jain.vidhyasagarsant.utils.DialogUtils;
@@ -52,9 +57,12 @@ public class WebViewActivity extends BaseActivity {
         mHeading = getIntent().getStringExtra(AppConstants.WEBVIEW_TITLE);
 
         mWebView.setWebViewClient(new WebBrowser());
+        mWebView.setBackgroundColor(Color.TRANSPARENT);
+        mWebView.setBackgroundResource(R.drawable.bg_01);
         mWebView.getSettings().setLoadsImagesAutomatically(true);
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setBuiltInZoomControls(true);
+        mWebView.getSettings().setSupportMultipleWindows(true);
         mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 
         mToolbar.setTitle(mHeading);
@@ -77,6 +85,31 @@ public class WebViewActivity extends BaseActivity {
         @Override
         public void onPageFinished(WebView view, String url) {
             DialogUtils.cancelProgressDialog();
+        }
+
+        /*@Override
+        public void onPageCommitVisible(WebView view, String url) {
+            super.onPageCommitVisible(view, url);
+            ((AudioManager)getSystemService(
+                    Context.AUDIO_SERVICE)).requestAudioFocus(
+                    new AudioManager.OnAudioFocusChangeListener() {
+                        @Override
+                        public void onAudioFocusChange(int focusChange) {}
+                    }, AudioManager.STREAM_MUSIC,
+                    AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+        }*/
+        @Override
+        public void onPageCommitVisible(WebView view, String url) {
+            super.onPageCommitVisible(view, url);
+            AudioManager am = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+            int result = am.requestAudioFocus(
+                    new AudioManager.OnAudioFocusChangeListener() {
+                        @Override
+                        public void onAudioFocusChange(int focusChange) {
+
+                        }
+                    }, AudioManager.STREAM_MUSIC,
+                    AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
         }
     }
 

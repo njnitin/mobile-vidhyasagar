@@ -29,20 +29,21 @@
             <item
                 android:id="@+id/nav_photos"
                 android:icon="@drawable/ic_nav_photos"
-                android:title="Photos" />
+                android:title="फोटोज़"
+                />
             <item
                 android:id="@+id/nav_videos"
                 android:icon="@drawable/ic_video_library"
-                android:title="Videos" />
+                android:title="वीडिओ" />
 
             <item
                 android:id="@+id/nav_bhajan"
                 android:icon="@drawable/ic_nav_bhajan"
-                android:title="Bhajan" />
+                android:title="भजन" />
             <item
                 android:id="@+id/nav_aarti"
                 android:icon="@drawable/ic_nav_aarti"
-                android:title="Aarti" />
+                android:title="आरती" />
 
         </menu>
     </item>

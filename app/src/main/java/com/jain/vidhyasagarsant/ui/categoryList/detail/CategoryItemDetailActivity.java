@@ -66,4 +66,30 @@ public class CategoryItemDetailActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    /*@Override
+    public void onBackPressed() {
+        this.finish();
+        super.onBackPressed();
+    }
+
+    @Override
+    public void onStop() {
+        this.finish();
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        this.finish();
+        super.onDestroy();
+
+    }
+    @Override
+    public void onPause ()
+    {
+        this.finish();
+        super.onPause();
+
+    }*/
 }
