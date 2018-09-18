@@ -19,7 +19,11 @@
     <string name="title_item_list">Items</string>
     <string name="title_item_detail">Item Detail</string>
     <string name="category_image">category_image</string>
-    <string name="whats_app_share_message">Sample whats app message</string>
+    <string name="whats_app_share_message">\t *आचार्य गुरुवर विद्यासागर जी महाराज ससंघ*,
+        \n \n \t \t *अहिंसा न्यूज़*,\n \n \t \t *जिन धर्म* \n \n \t \t एवं अन्य जानकारी जानकारी प्राप्त करने के लिए डाउनलोड करें
+        Android App -\n \t \t \" *Vidhya Sagar Sant* \" \n \n
+        https://play.google.com/store/apps/details?id=com.jain.vidhyasagarsant
+    </string>
     <string name="no_email_apps_error_message">There are no email clients installed.</string>
     <string name="whats_app_notpresent_message">Whatsapp have not been installed.</string>
     <string name="title_categoryitem_list">CategoryItems</string>
